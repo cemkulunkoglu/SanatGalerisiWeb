@@ -89,8 +89,3 @@ src/
 
 Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-## 📞 İletişim
-
-Proje Sahibi - [@kullanici-adi](https://github.com/kullanici-adi)
-
-Proje Linki: [https://github.com/kullanici-adi/SanatGalerisiWeb](https://github.com/kullanici-adi/SanatGalerisiWeb)
