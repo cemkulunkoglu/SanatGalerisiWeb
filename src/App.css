@@ -1,0 +1,1678 @@
+/* Header Animasyonları */
+.navbar {
+  background: rgba(33, 37, 41, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.8) !important;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(13, 202, 240, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+.nav-link:hover::before {
+  transform: translateX(100%);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #0dcaf0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  color: #0dcaf0 !important;
+  text-shadow: 0 0 8px rgba(13, 202, 240, 0.5);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link.active {
+  color: #0dcaf0 !important;
+  animation: glowPulse 2s infinite;
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 5px rgba(13, 202, 240, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(13, 202, 240, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(13, 202, 240, 0.5);
+  }
+}
+
+/* Logo Animasyonu */
+.navbar-brand {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(45deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.navbar-brand:hover {
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 0 15px rgba(13, 202, 240, 0.5);
+}
+
+/* Buton Animasyonları */
+.btn {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #0d6efd, #0dcaf0);
+  border: none;
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
+
+.btn-outline-light {
+  border: 2px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Footer Animasyonları */
+.footer {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.98));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.footer h5 {
+  font-weight: var(--apple-font-weight-semibold);
+  color: #fff;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.footer h5::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #0dcaf0, #0d6efd);
+}
+
+.footer-links li {
+  transition: all 0.3s ease;
+}
+
+.footer-links li:hover {
+  transform: translateX(5px);
+}
+
+.hover-link {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hover-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #0dcaf0, #0d6efd);
+  transition: width 0.3s ease;
+}
+
+.hover-link:hover {
+  color: #fff !important;
+}
+
+.hover-link:hover::after {
+  width: 100%;
+}
+
+.contact-info i {
+  font-size: 1.2rem;
+  color: #0dcaf0;
+  transition: all 0.3s ease;
+}
+
+.contact-info li:hover i {
+  transform: scale(1.1);
+  color: #0d6efd;
+}
+
+.working-hours span {
+  transition: all 0.3s ease;
+}
+
+.working-hours li:hover span {
+  color: #fff !important;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon i {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  transform: translateY(-3px);
+}
+
+.social-icon:hover i {
+  transform: scale(1.1);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer h5::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links li:hover {
+    transform: none;
+  }
+
+  .contact-info li {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Sosyal Medya İkonları */
+.social-icon {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin: 0 5px;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0dcaf0;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: #fff !important;
+}
+
+.social-icon:hover::before {
+  transform: scale(1);
+}
+
+/* Kart Animasyonları */
+.card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  overflow: hidden;
+  border: none !important;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(13, 202, 240, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+}
+
+.feature-icon::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(13, 202, 240, 0.4);
+}
+
+.card:hover .feature-icon::before {
+  opacity: 1;
+  animation: gradientShift 3s linear infinite;
+}
+
+.card .fs-4 {
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.card .fs-4::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0dcaf0, #0d6efd);
+  transition: width 0.3s ease;
+}
+
+.card:hover .fs-4::after {
+  width: 100%;
+}
+
+.card p {
+  transition: all 0.3s ease;
+  color: #6c757d;
+  transform: translateY(0);
+}
+
+.card:hover p {
+  transform: translateY(-5px);
+}
+
+/* Başlık Animasyonları */
+.display-4 {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.display-4:hover {
+  transform: translateY(-2px);
+}
+
+.display-4 .text-info {
+  background: linear-gradient(45deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+.lead {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.lead::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0dcaf0, transparent);
+  transition: width 0.3s ease;
+}
+
+.lead:hover::after {
+  width: 100%;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hakkımızda Kartları için Özel Animasyonlar */
+.about-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(13, 202, 240, 0.1) 0%,
+    rgba(13, 110, 253, 0.1) 100%
+  );
+  transform: translateZ(-1px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.about-card:hover {
+  transform: translateY(-20px) rotate3d(1, 1, 0, 5deg);
+  box-shadow: 0 30px 60px rgba(13, 202, 240, 0.2);
+}
+
+.about-card:hover::before {
+  transform: translateZ(0) scale(1.1);
+  opacity: 0.8;
+}
+
+.about-card .card-img-top {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.about-card:hover .card-img-top {
+  transform: scale(1.1) rotate(2deg);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.about-card .card-body {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.about-card:hover .card-body {
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateZ(10px);
+}
+
+.about-card .card-title {
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+.about-card:hover .card-title {
+  transform: translateX(10px);
+  animation: gradientFlow 3s ease infinite;
+}
+
+.about-card .card-text {
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+.about-card:hover .card-text {
+  transform: translateY(-5px);
+  opacity: 1;
+}
+
+.about-card .btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  border: none;
+  transform: translateZ(0);
+}
+
+.about-card .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  z-index: -1;
+  opacity: 0;
+  transition: 0.4s;
+  border-radius: inherit;
+}
+
+.about-card .btn-primary:hover {
+  transform: translateY(-3px) translateZ(5px);
+  box-shadow: 0 10px 20px rgba(13, 202, 240, 0.4);
+}
+
+.about-card .btn-primary:hover::before {
+  opacity: 1;
+  animation: gradientShift 3s infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientShift {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Dönem Kartları için Animasyonlar */
+.period-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.period-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(13, 202, 240, 0.1), rgba(13, 110, 253, 0.1));
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.period-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(13, 202, 240, 0.15);
+}
+
+.period-card:hover::before {
+  transform: translateY(0);
+}
+
+.period-card .card-title {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.period-card:hover .card-title {
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.period-card .card-text {
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+.period-card:hover .card-text {
+  transform: translateY(-5px);
+}
+
+/* Animasyon Geçiş Süreleri */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hero Title Animations */
+.hero-title {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transition: width 0.5s ease;
+}
+
+.hero-title:hover::after {
+  width: 100%;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-control:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control.prev {
+  left: 20px;
+}
+
+.carousel-control.next {
+  right: 20px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Carousel Styles */
+.hero-section .carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-section .carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 0;
+}
+
+.hero-section .carousel-item.active {
+  opacity: 1;
+}
+
+.hero-section .hero-title {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-section .hero-subtitle {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1s ease-out 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Öne Çıkan Eserler için Yeni Animasyonlar */
+.featured-work-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-work-item:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(13, 202, 240, 0.2);
+}
+
+.work-image-container {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.work-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-work-item:hover .work-image {
+  transform: scale(1.1);
+}
+
+.work-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(13, 202, 240, 0), 
+    rgba(13, 110, 253, 0.9)
+  );
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+
+.featured-work-item:hover .work-overlay {
+  opacity: 1;
+}
+
+.work-content {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.1s;
+  color: white;
+  width: 100%;
+}
+
+.featured-work-item:hover .work-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.work-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.work-artist {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.work-description {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.work-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.work-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* İstatistik Stilleri */
+.statistics {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #0dcaf0;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #0dcaf0, #0d6efd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Ünlü Sanatçılar Kartları için Animasyonlar */
+.famous-artist-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.famous-artist-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(13, 202, 240, 0.1), rgba(13, 110, 253, 0.1));
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.famous-artist-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(13, 202, 240, 0.15);
+}
+
+.famous-artist-card:hover::before {
+  transform: translateY(0);
+}
+
+.famous-artist-card .card-title {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.famous-artist-card:hover .card-title {
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.famous-artist-card .card-text {
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+.famous-artist-card:hover .card-text {
+  transform: translateY(-5px);
+}
+
+/* Sanatçılarımız Kartları için Özel Animasyonlar */
+.artist-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.artist-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(13, 202, 240, 0.1) 0%,
+    rgba(13, 110, 253, 0.1) 100%
+  );
+  transform: translateZ(-1px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.artist-card:hover {
+  transform: translateY(-20px) rotate3d(1, 1, 0, 5deg);
+  box-shadow: 0 30px 60px rgba(13, 202, 240, 0.2);
+}
+
+.artist-card:hover::before {
+  transform: translateZ(0) scale(1.1);
+  opacity: 0.8;
+}
+
+.artist-card .card-img-top {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.artist-card:hover .card-img-top {
+  transform: scale(1.1) rotate(2deg);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.artist-card .card-body {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.artist-card:hover .card-body {
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateZ(10px);
+}
+
+.artist-card .card-title {
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+.artist-card:hover .card-title {
+  transform: translateX(10px);
+  animation: gradientFlow 3s ease infinite;
+}
+
+.artist-card .card-text {
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+.artist-card:hover .card-text {
+  transform: translateY(-5px);
+  opacity: 1;
+}
+
+.artist-card .btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  border: none;
+  transform: translateZ(0);
+}
+
+.artist-card .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  z-index: -1;
+  opacity: 0;
+  transition: 0.4s;
+  border-radius: inherit;
+}
+
+.artist-card .btn-primary:hover {
+  transform: translateY(-3px) translateZ(5px);
+  box-shadow: 0 10px 20px rgba(13, 202, 240, 0.4);
+}
+
+.artist-card .btn-primary:hover::before {
+  opacity: 1;
+  animation: gradientShift 3s infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientShift {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Gölge Animasyonu */
+@keyframes shadowPulse {
+  0% { box-shadow: 0 5px 15px rgba(13, 202, 240, 0.2); }
+  50% { box-shadow: 0 5px 25px rgba(13, 202, 240, 0.4); }
+  100% { box-shadow: 0 5px 15px rgba(13, 202, 240, 0.2); }
+}
+
+/* Why Us Styles */
+.why-us-item {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.why-us-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(13, 202, 240, 0.1), rgba(13, 110, 253, 0.1));
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.why-us-item:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(13, 202, 240, 0.15);
+}
+
+.why-us-item:hover::before {
+  transform: translateY(0);
+}
+
+.why-us-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  color: white !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-us-icon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.why-us-item:hover .why-us-icon {
+  transform: rotateY(360deg);
+}
+
+.why-us-item:hover .why-us-icon::after {
+  opacity: 1;
+  animation: pulseGlow 2s infinite;
+}
+
+.why-us-item h3 {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.why-us-item:hover h3 {
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.why-us-item p {
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+.why-us-item:hover p {
+  transform: translateY(-5px);
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* İletişim Kartları için Özel Animasyonlar */
+.contact-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(13, 202, 240, 0.1) 0%,
+    rgba(13, 110, 253, 0.1) 100%
+  );
+  transform: translateZ(-1px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.contact-card:hover {
+  transform: translateY(-20px) rotate3d(1, 1, 0, 5deg);
+  box-shadow: 0 30px 60px rgba(13, 202, 240, 0.2);
+}
+
+.contact-card:hover::before {
+  transform: translateZ(0) scale(1.1);
+  opacity: 0.8;
+}
+
+.contact-card .card-img-top {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.contact-card:hover .card-img-top {
+  transform: scale(1.1) rotate(2deg);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.contact-card .card-body {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.contact-card:hover .card-body {
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateZ(10px);
+}
+
+.contact-card .card-title {
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+.contact-card:hover .card-title {
+  transform: translateX(10px);
+  animation: gradientFlow 3s ease infinite;
+}
+
+.contact-card .card-text {
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+.contact-card:hover .card-text {
+  transform: translateY(-5px);
+  opacity: 1;
+}
+
+.contact-card .btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  border: none;
+  transform: translateZ(0);
+}
+
+.contact-card .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  z-index: -1;
+  opacity: 0;
+  transition: 0.4s;
+  border-radius: inherit;
+}
+
+.contact-card .btn-primary:hover {
+  transform: translateY(-3px) translateZ(5px);
+  box-shadow: 0 10px 20px rgba(13, 202, 240, 0.4);
+}
+
+.contact-card .btn-primary:hover::before {
+  opacity: 1;
+  animation: gradientShift 3s infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientShift {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* İletişim Sayfası Stilleri */
+.contact-page {
+  min-height: 100vh;
+}
+
+.contact-form-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: none;
+  overflow: hidden;
+}
+
+.contact-info-card,
+.map-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: none;
+  overflow: hidden;
+}
+
+.contact-info-card:hover,
+.map-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(13, 202, 240, 0.2);
+}
+
+.form-control {
+  border: 1px solid rgba(13, 202, 240, 0.2);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.form-control:focus {
+  border-color: #0dcaf0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25);
+}
+
+.contact-info-card {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.98) 100%
+  );
+}
+
+.contact-info-item {
+  position: relative;
+  padding: 15px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.contact-info-item:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.contact-info-item i {
+  transition: all 0.3s ease;
+}
+
+.contact-info-item:hover i {
+  transform: scale(1.2);
+  color: #0d6efd !important;
+}
+
+.map-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.map-card iframe {
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  border: none;
+  padding: 12px 24px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(13, 202, 240, 0.4);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .contact-form-card,
+  .contact-info-card,
+  .map-card {
+    margin-bottom: 20px;
+  }
+  
+  .contact-info-item {
+    padding: 10px;
+  }
+}
+
+/* Apple Tarzı Yazı Stilleri */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --apple-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --apple-font-weight-light: 300;
+  --apple-font-weight-regular: 400;
+  --apple-font-weight-medium: 500;
+  --apple-font-weight-semibold: 600;
+  --apple-font-weight-bold: 700;
+  --apple-letter-spacing: -0.02em;
+  --apple-line-height: 1.4;
+}
+
+body {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-regular);
+  letter-spacing: var(--apple-letter-spacing);
+  line-height: var(--apple-line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-semibold);
+  letter-spacing: var(--apple-letter-spacing);
+  line-height: 1.2;
+}
+
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-bold);
+  letter-spacing: var(--apple-letter-spacing);
+  line-height: 1.1;
+}
+
+.navbar-brand {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-semibold);
+  letter-spacing: var(--apple-letter-spacing);
+}
+
+.nav-link {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-medium);
+  letter-spacing: var(--apple-letter-spacing);
+}
+
+.card-title {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-semibold);
+  letter-spacing: var(--apple-letter-spacing);
+}
+
+.card-text {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-regular);
+  letter-spacing: var(--apple-letter-spacing);
+  line-height: var(--apple-line-height);
+}
+
+.btn {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-medium);
+  letter-spacing: var(--apple-letter-spacing);
+}
+
+.lead {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-regular);
+  letter-spacing: var(--apple-letter-spacing);
+  line-height: var(--apple-line-height);
+}
+
+.text-muted {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-regular);
+  letter-spacing: var(--apple-letter-spacing);
+  opacity: 0.8;
+}
+
+/* Form Elemanları için Apple Stili */
+.form-control {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-regular);
+  letter-spacing: var(--apple-letter-spacing);
+}
+
+.form-label {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-medium);
+  letter-spacing: var(--apple-letter-spacing);
+}
+
+/* Footer için Apple Stili */
+.footer-link {
+  font-family: var(--apple-font-family);
+  font-weight: var(--apple-font-weight-regular);
+  letter-spacing: var(--apple-letter-spacing);
+}
+
+/* Responsive Ayarlar */
+@media (max-width: 768px) {
+  :root {
+    --apple-line-height: 1.5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+  }
+}
+
+/* Apple Stili Navbar */
+
+/* Error Page Animations */
+.error-number {
+  animation: float 3s ease-in-out infinite;
+}
+
+.error-title {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.error-description {
+  animation: fadeInUp 0.8s ease-out 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.error-button {
+  animation: fadeInUp 0.8s ease-out 0.4s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
